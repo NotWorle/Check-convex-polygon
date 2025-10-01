@@ -1,1 +1,31 @@
-.vs
+.# Build folders
+Debug/
+Release/
+x64/
+x86/
+*.obj
+*.pdb
+*.idb
+*.ilk
+*.log
+*.tlog
+*.pch
+*.ipch
+*.iobj
+*.ipdb
+
+# Binaries
+*.exe
+*.dll
+*.lib
+
+# User-specific
+*.user
+.vs/
+
+# Cache / database
+*.sdf
+*.cache
+*.db
+*.VC.db
+*.opendb
