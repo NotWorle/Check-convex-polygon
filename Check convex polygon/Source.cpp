@@ -1,5 +1,5 @@
-﻿#include <iostream>
-#include <cmath>
+#include <iostream>
+
 #include "graphics.h"
 
 #pragma comment(lib,"graphics.lib")
@@ -38,7 +38,7 @@ int main()
 	cleardevice();
 	int* a = new int[1000];
 	int* b = new int[1000];
-	back:
+back:
 	int vitri = 0;
 	disnutve();
 	disnutxoa();
@@ -46,7 +46,7 @@ int main()
 	{
 		bool ve = false;
 		bool xoa = false;
-		hack:
+	hack:
 		if (ismouseclick(WM_LBUTTONDOWN)) {
 			getmouseclick(WM_LBUTTONDOWN, x, y);
 			for (int z = 800; z <= 900; z++)
@@ -74,16 +74,16 @@ int main()
 					(con.A + z)->x = a[z];
 					(con.A + z)->y = b[z];
 				}
-				if (checkconvex(con,vitri))
+				if (checkconvex(con, vitri))
 				{
-					cout << "is convex"<<endl;
-					cout << "area is: " << DientichConvex(con)<<endl;
+					cout << "is convex" << endl;
+					cout << "area is: " << DientichConvex(con) << endl;
 					cout << "Perimeter is: " << ChuviConvex(con) << endl;
 
 				}
 				else
 				{
-					cout << "isn't convex, don't calculation"<<endl;
+					cout << "isn't convex, don't calculation" << endl;
 				}
 				nutve(a, b, vitri);
 				goto hack;
@@ -110,13 +110,13 @@ int main()
 void nutve(int a[], int b[], int vitri)
 {
 	line(a[0], b[0], a[vitri - 1], b[vitri - 1]);
-		if (vitri >= 2)
+	if (vitri >= 2)
+	{
+		for (int z = 1; z < vitri; z++)
 		{
-			for (int z = 1; z < vitri; z++)
-			{
-				line(a[z], b[z], a[z - 1], b[z - 1]);
-			}
+			line(a[z], b[z], a[z - 1], b[z - 1]);
 		}
+	}
 }
 
 void nutxoa()
@@ -178,7 +178,7 @@ bool checkconvex(convexpoly con, int sopt)
 	{
 		if (z == sopt - 1)
 		{
-			y = 0;  
+			y = 0;
 			a = con.A[z].x - con.A[y].x;
 			b = con.A[z].y - con.A[y].y;
 			c = -b * con.A[z].x + a * con.A[z].y;
@@ -201,10 +201,10 @@ bool checkconvex(convexpoly con, int sopt)
 			else if (z != sopt - sopt and t == sopt - 1)
 			{
 
-				value = (b * con.A[0].x - a * con.A[0].y + c) * (b * con.A[sopt-1].x - a * con.A[sopt -1].y + c);
+				value = (b * con.A[0].x - a * con.A[0].y + c) * (b * con.A[sopt - 1].x - a * con.A[sopt - 1].y + c);
 
 				if (value < 0)
-				{ 
+				{
 					okk = false;
 				}
 				break;
@@ -215,7 +215,7 @@ bool checkconvex(convexpoly con, int sopt)
 			}
 			else
 			{
-				value = (b * con.A[t].x - a * con.A[t].y + c) * (b * con.A[t+1].x - a * con.A[t+1].y + c);
+				value = (b * con.A[t].x - a * con.A[t].y + c) * (b * con.A[t + 1].x - a * con.A[t + 1].y + c);
 				if (value < 0)
 				{
 					okk = false;
@@ -224,7 +224,7 @@ bool checkconvex(convexpoly con, int sopt)
 
 
 		}
-	
+
 
 	}
 	if (okk == true)
@@ -233,8 +233,8 @@ bool checkconvex(convexpoly con, int sopt)
 	}
 	else
 	{
-		
+
 		return false;
-		
+
 	}
 }
