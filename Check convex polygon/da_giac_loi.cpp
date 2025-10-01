@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-
+#include <cmath>
 #include "graphics.h"
 
 #pragma comment(lib,"graphics.lib")
